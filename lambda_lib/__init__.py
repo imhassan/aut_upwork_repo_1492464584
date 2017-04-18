@@ -6,7 +6,8 @@ def create_lambda(npm_packages,javascript_code,function_name):
     print(function_name)
 
     print("Using the following npm packages:")
-    print(npm_packages)
+    for k, v in npm_packages.items():
+        print("     Package : {0} Version : {1}".format(k, v))
 
     print("With this javascript code:")
     print(javascript_code)

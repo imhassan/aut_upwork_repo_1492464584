@@ -2,10 +2,10 @@
 
 import lambda_lib
 
-npm_packages = [
-    {"moment","2.18.1"},
-    {"underscore","1.8.3"}
-]
+npm_packages = {
+    "moment": "2.18.1",
+    "underscore": "1.8.3"
+}
 
 javascript_code = """
   exports.handler = function(event, context) {
