@@ -1,0 +1,67 @@
+# Python compiled
+*.py[cod]
+*.pyc
+
+# Logs
+*.log
+test_out.txt
+
+# C extensions
+*.so
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+# *.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+.DS_Store
+venv
+*.swp
+*.db
+*.sqlite
+
+# Environment Variables
+.env
+/env_files
+
+mongo_temp
+
+# emacs auto-save
+*~
+
+# IDE
+.idea
+.metadata
+*.ipynb*
+
+# Local test scripts
+test_local_*_script.py
+
+# Celery
+celerybeat.pid
+
+# Gigwalk env files
+*.env*
+
+#pytest caching
+_cache*
+.cache
+
+# swagger files
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
