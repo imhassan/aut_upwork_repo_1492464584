@@ -17,8 +17,8 @@ config['rolePolicyDoc'] = '{"Version":"2012-10-17","Statement":{"Effect":"Allow"
 config['rolePolicy'] = '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":["logs:*"],"Resource":"arn:aws:logs:*:*:*"}]}'
 
 session = boto3.Session(aws_access_key_id=config['accessKeyId'], aws_secret_access_key=config['secretAccessKey'], region_name=config['region'])
-lambdaClient = boto3.client('lambda')
-IAMclient = boto3.client('iam')
+lambdaClient = session.client('lambda')
+IAMclient = session.client('iam')
 
 
 def create_role():
