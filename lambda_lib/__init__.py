@@ -16,7 +16,7 @@ config['roleName'] = "lambda_basic_execution2";
 config['rolePolicyDoc'] = '{"Version":"2012-10-17","Statement":{"Effect":"Allow","Principal":{"Service":"lambda.amazonaws.com"},"Action":"sts:AssumeRole"}}'
 config['rolePolicy'] = '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":["logs:*"],"Resource":"arn:aws:logs:*:*:*"}]}'
 
-session = Session(aws_access_key_id=config['accessKeyId'], aws_secret_access_key=config['secretAccessKey'], region_name=config['region'])
+session = boto3.Session(aws_access_key_id=config['accessKeyId'], aws_secret_access_key=config['secretAccessKey'], region_name=config['region'])
 lambdaClient = boto3.client('lambda')
 IAMclient = boto3.client('iam')
 
