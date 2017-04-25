@@ -35,15 +35,18 @@ def create_role():
         time.sleep(10)
         print('role created')
         return role_response
-        
+def clean_temp_dir():
+    print("cleaning temp directory. ")
+    cleanCmd = "rm -rf "+config['tmpFolder']+"*"
+    print(cleanCmd)
+    return subprocess.call(cleanCmd, shell=True)
+            
 def create_lambda(npm_packages,javascript_code,function_name):
     print("This function should create or update an AWS lambda function with the function name:")
     print(function_name)
     print(os.getcwd())
 
-    cleanCmd = "rm -rf "+config['tmpFolder']+"*"
-    print(cleanCmd)
-    subprocess.call(cleanCmd, shell=True)
+    clean_temp_dir()
     
     print("Using the following npm packages:")
     for k, v in npm_packages.items():
@@ -68,6 +71,7 @@ def create_lambda(npm_packages,javascript_code,function_name):
         print("function already exist, updating  its code")
         with open(config['tmpFolder']+"lambda.zip") as file:
             response = lambdaClient.update_function_code(FunctionName=function_name, ZipFile=file.read())
+            clean_temp_dir()
             print("DONE")
     except: 
         print('There is no lambda function. create new')
@@ -77,6 +81,7 @@ def create_lambda(npm_packages,javascript_code,function_name):
             Timeout=15,
             MemorySize=128,
             Publish=True)
+            clean_temp_dir()
             print("DONE.")
        
 def execute_lambda(function_name, event_object):
